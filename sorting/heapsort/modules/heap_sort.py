@@ -6,21 +6,21 @@ def max_heapify(A, i):
     max_index = i
     l = left(i)
     r = right(i)
-    if l < len(A):
-        if A[i] < A[l]:
+    if l < A.heap_size:
+        if A.arr[i] < A.arr[l]:
             max_index = l
 
-    if r < len(A):
-        if A[max_index] < A[r]:
+    if r < A.heap_size:
+        if A.arr[max_index] < A.arr[r]:
             max_index = r
 
     if max_index != i:
-        temp = A[i]
-        A[i] = A[max_index]
-        A[max_index] = temp
+        temp = A.arr[i]
+        A.arr[i] = A.arr[max_index]
+        A.arr[max_index] = temp
         i = max_index
         max_heapify(A, i)
     else:
-        print A
+        print A.arr
         return
 
